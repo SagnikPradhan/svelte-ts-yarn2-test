@@ -78,3 +78,15 @@ yarn add --dev svelte-preprocess typescript sass
    </details>
 
     If we look at logs it seems like svelte extension unable to get packages in `svelte.config.js` due to yarn 2s own module resolution.
+    
+    **FIX!!**
+    The fix was pretty simple, just had to call the pnp api to take over the module resolution
+    ```js
+    // svelte.config.js
+    require('./.pnp.js').setup()
+    const sveltePreprocess = require("svelte-preprocess");
+
+    module.exports = {
+      preprocess: sveltePreprocess(),
+    };
+    ```
