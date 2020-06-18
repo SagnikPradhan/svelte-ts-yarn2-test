@@ -25,26 +25,6 @@ yarn add --dev svelte-preprocess typescript sass
 git clone https://github.com/SagnikPradhan/svelte-yarn2-test.git
 ```
 
-## Observation
+## Fix
 
-1. ### Error with `svelte.config.js`
-
-   Reference: [Logs](https://gist.github.com/SagnikPradhan/d07d0714be86683943fd599fdf8eb8d7#file-svelte-config-error)
-
-   If we look at logs it seems like svelte extension unable to get packages in `svelte.config.js` due to yarn 2s own module resolution. The fix was pretty simple, just had to call the pnp api to take over the module resolution.
-
-   ```js
-   // svelte.config.js
-   require("./.pnp.js").setup();
-   const sveltePreprocess = require("svelte-preprocess");
-
-   module.exports = {
-     preprocess: sveltePreprocess(),
-   };
-   ```
-
-2. ### Error with typescript plugin
-
-   Reference: [Logs](https://gist.github.com/SagnikPradhan/d07d0714be86683943fd599fdf8eb8d7#file-typescript-plugin-error)
-
-   Still looking about this error
+> Comming shortly
